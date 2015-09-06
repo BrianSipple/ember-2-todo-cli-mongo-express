@@ -1,0 +1,21 @@
+.footer {
+    position: relative;
+    width: 100%;
+    left: 0;
+    min-height: $footer__height;
+    text-align: center;
+
+    &.footer--page {
+      position: absolute;
+      bottom: 0;   // The center content applies padding to account for the navbar height, so let's make sure the footer doesn't flow over top of its bottom
+      transform: translateY(100%);  // At minimum, keep just of the edge of the view
+    }
+
+    .footer__items {
+        display: flex;
+        width: 100%;
+    }
+    .footer__item {
+        flex: 1;
+    }
+}

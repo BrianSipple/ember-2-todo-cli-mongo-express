@@ -1,0 +1,139 @@
+<div id="todoApp" class="page homepage">
+
+    <section class="page-section page-section--hero hero">
+
+            <header>
+                <h1 class="hero__main-title">ToDo: Everything</h1>
+            </header>
+            <div class="hero__content-container">
+                <h2 class="page-section__title">Let's Get To It</h2>
+            </div>
+
+    </section>
+
+    <section class="page-section--main-content">
+
+        <div class="container todos">
+
+            <div class="content">
+
+                <div class="todo-item todo-item--new">
+                    <!--<span><i class="ic ic-new-item"></i></span>-->
+
+                    <div class="todo-item__toggle-container">
+                        <input class="checkbox todo-item__toggle-all" id="todos__toggle-all" type="checkbox" />
+                        <label class="hidden" for="todos__toggle-all">Mark as complete</label>
+                    </div>
+
+                    <input id="todos__new"
+                            type="text"
+                            class="input-field input-field--text todo-item__title--new"
+                            placeholder="What needs to be done?"
+                            autofocus/>
+
+                    <div class="todo-item__btns">
+                        <button class="btn btn--primary todo-item__btn animated-hide"></button>
+                    </div>
+
+                </div>
+
+                <ul class="todo-list content">
+
+                    {{#each todo in model}}
+
+                      <li class="todo-item {{if todo.isComplete 'todo-item__complete'}}">
+                        <input class="checkbox todo-item__toggle" type="checkbox">
+                        <label class="label">{{todo.title}}</label>
+                        <button class="btn btn--destroy"></button>
+                      </li>
+
+                    {{/each}}
+
+                    <input type="checkbox" class="checkbox todo-item__toggle-all">
+
+                </ul>
+
+                <section class="page-section__stats-footer">
+
+                    <footer class="footer stats-footer">
+
+                        <div class="footer__item stats-footer__count">
+                            <strong>2</strong> todos remaining
+                        </div>
+
+                        <!-- Sliding bottom indicator -->
+                        <div class="footer__item tab-selectors">
+                            <div class="tab-selectors__content">
+
+                                <ul class="tab-selectors__tab-list">
+
+                                    <li class="tab active" role="tab" tabindex="0">
+
+                                        <a href="#/" class="tab__link">All</a>
+
+                                        <div class="ripple">
+                                            <div class="ripple__background"></div>
+                                            <div class="ripple__waves">
+                                                <div class="waves-container">
+                                                    <div class="wave"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </li>
+
+                                    <li class="tab" role="tab" tabindex="-1">
+
+                                        <a href="#/remaining" class="tab__link">Remaining</a>
+
+                                        <div class="ripple">
+                                            <div class="ripple__background"></div>
+                                            <div class="ripple__waves">
+                                                <div class="waves-container">
+                                                    <div class="wave"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </li>
+
+                                    <li class="tab" role="tab" tabindex="-1">
+
+                                        <a href="#/completed" class="tab__link">Completed</a>
+
+                                        <div class="ripple">
+                                            <div class="ripple__background"></div>
+                                            <div class="ripple__waves">
+                                                <div class="waves-container">
+                                                    <div class="wave"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <div class="footer__item stats-footer__clear-btn-container">
+                            <button id="todos__clear-completed" class="btn btn--destroy hidden">
+                                Clear completed (1)
+                            </button>
+                        </div>
+
+                    </footer>
+
+                </section>
+
+            </div>
+        </div>
+
+        <footer class="footer todos__footer">
+            <p class="content info">Double-click to edit a todo</p>
+        </footer>
+
+    </section>
+
+</div>

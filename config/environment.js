@@ -16,7 +16,19 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      LOG_TRANSITIONS = true;
+    },
+
+    contentSecurityPolicy: {
+        'default-src': "'none'",
+        'script-src': "'self'",
+        'font-src': "'self' http://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzBampu5_7CjHW5spxoeN3Vs.woff2",
+        'connect-src': "'self' http://localhost:4500", // Allow data (ajax/websocket) from http://localhost:4500
+        'img-src': "'self'",
+        'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com/css?family=Open+Sans:400,300,700", // Allow inline styles
+        'media-src': "'self'"
     }
+
   };
 
   if (environment === 'development') {

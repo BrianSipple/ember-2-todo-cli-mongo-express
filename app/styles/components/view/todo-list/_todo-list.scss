@@ -1,0 +1,12 @@
+.todo-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    .todo-item:last-child {
+        border-bottom: none;
+    }
+
+
+
+}

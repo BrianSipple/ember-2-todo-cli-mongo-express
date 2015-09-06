@@ -1,0 +1,39 @@
+.input-field {
+    font-size: 1.8rem;
+    padding: 2rem 2.0rem 2.0rem 1.55rem;
+    width: 100%;
+    display: block;
+    max-width: 100%;
+    border-raius: 0.2em;
+    border: 1px solid $font-color__disabled--dark-on-light-background;
+    outline: 1px solid lighten($font-color__disabled--dark-on-light-background, 4%);
+    background-color: hsla(0, 0%, 90%, 1);
+    color: $font-color__disabled--dark-on-light-background;    
+    
+    transition: 
+        color $anim-duration__color-change linear,
+        background-color $anim-duration__color-change linear;
+    
+    &:focus {
+        outline: none;
+        background-color: hsla(0, 0%, 95%, 1);
+        color: $font-color__input-field--dark-on-light-background;
+    }
+        
+    &.input-field--text {
+            
+    }
+    
+    &.input-field--number {
+        
+    }
+    
+    &.input-field--percentage {
+        
+    }
+        
+        
+    
+    
+    
+}

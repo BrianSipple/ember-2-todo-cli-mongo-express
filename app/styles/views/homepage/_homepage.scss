@@ -1,0 +1,86 @@
+.homepage {
+
+    padding-top: 0;   // No fixed navbar to account for
+    
+  .page-section--main-content {
+      margin-top: -($hero__height / 3);
+  }
+
+  .hero__content-container {
+      width: 100%;
+      top: 30%;
+      left: 50%;
+  }
+
+  .todos {
+      @include BoxShadowHelper(2);
+      width: 70%;
+      min-width: 450px;
+
+      .stats-footer {
+        color: #777;
+        height: 3.6rem;
+        position: relative;
+        text-align: center;
+        align-items: center;
+        border-top: 1px solid #e6e6e6;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        background-color: $todo-item__background-color--faded;
+
+      }
+
+      .stats-footer::before {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 50px;
+        overflow: hidden;
+        box-shadow:
+          0 1px 1px hsla(0, 0%, 0%, 0.2),
+          0 8px 0 -3px #f6f6f6,
+          0 9px 1px -3px hsla(0, 0%, 0%, 0.2),
+          0 16px 0 -6px #f6f6f6,
+          0 17px 2px -6px hsla(0, 0%, 0%, 0.2);
+      }
+
+      .stats-footer__count {
+        flex: 1;
+      }
+
+      .tab-selectors {
+        flex: 3;
+      }
+
+      .stats-footer__clear-btn-container {
+        flex: 1;
+        height: 100%;
+        font-size: 0.8em;
+      }
+
+
+
+  }
+
+
+  @media screen and (min-width: map_get($map__breakpoint-sizes, 'large')) {
+    .todos {
+      width: 75%;
+    }
+  }
+  @media screen and (min-width: map_get($map__breakpoint-sizes, 'medium-large')) {
+    .todos {
+      width: 80%;
+    }
+  }
+  @media screen and (min-width: map_get($map__breakpoint-sizes, 'medium')) {
+    .todos {
+      width: 85%;
+    }
+  }
+
+
+}

@@ -1,0 +1,99 @@
+/* ---------------------- Theme colors ---------------------- */
+$theme-color__primary: hsla(154, 100%, 50%, 1);
+$theme-color__primary--alt-light: hsla(154, 100%, 65%, 1);
+$theme-color__primary--alt-dark: hsla(154, 100%, 25%, 1);
+
+$theme-color__accent: hsla(199, 100%, 48%, 1);
+$theme-color__accent--alt-light: hsla(199, 100%, 55%, 1);
+$theme-color__accent--alt-dark: hsla(199, 100%, 33%, 1);
+
+$theme-color__special: hsla(61, 100%, 50%, 1);  /* Surprise me */
+
+
+$background-color__page--primary: hsla(0, 0%, 96%, 1);
+$background-color__content--primary: hsla(0, 100%, 100%, 1);
+
+
+
+
+/* ----------------------- Fonts, font sizes, font colors ---------------------- */
+$font-family-stack__main: Roboto, 'Open Sans', Helvetica, Helvetica Neue, Arial, sans-serif;
+$font-family-stack__pre: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+
+$font-size__root: 1.6rem;
+
+$font-size__md: 1.6rem;
+
+
+/* ------------------------- Font Colors --------------------- */
+
+/* White text on dark backgrounds */
+$font-color__primary-text--light-on-dark-background: hsla(0, 100%, 100%, 1);
+$font-color__icon--light-on-dark-background: hsla(0, 100%, 100%, 1);
+$font-color__button--light-on-dark-background: hsla(0, 100%, 100%, 0.7);
+$font-color__secondary-text--light-on-dark-background: hsla(0, 100%, 100%, .70);
+$font-color__disabled--light-on-dark-background: hsla(0, 100%, 100%, .30);
+$font-color__hint-text--light-on-dark-background: hsla(0, 100%, 100%, .30);
+$font-color__divider--light-on-dark-background: hsla(0, 100%, 100%, .12);
+$font-color__input-field__light-on-dark-background: hsla(0, 100%, 100%, 0.6);
+
+/* Dark text on light backgrounds */
+$font-color__primary-text--dark-on-light-background: hsla(0, 0%, 0%, 0.87);
+$font-color__header-text--dark-on-light-background: hsla(276, 3%, 30%, 1);
+$font-color__icon--dark-on-light-background: hsla(0, 0%, 0%, 0.54);
+$font-color__button--dark-on-light-background: hsla(0, 0%, 0%, 0.54);
+$font-color__secondary-text--dark-on-light-background: hsla(0, 0%, 0%, 0.54);
+$font-color__disabled--dark-on-light-background: hsla(0, 0%, 0%, 0.38);
+$font-color__hint-text--dark-on-light-background: hsla(0, 0%, 0%, 0.38);
+$font-color__divider--dark-on-light-background: hsla(0, 0%, 0%, 0.12);
+$font-color__input-field__dark-on-light-background: hsla(0, 0%, 52%, 1);
+
+$font-color__default: $font-color__primary-text--dark-on-light-background;
+
+
+
+/* ----------------------- Base padding ---------------------- */
+$padding__section-wrapper: .33em 1em;
+$padding__element: 0.3em 0.8em;
+$padding__content: 1.5em 2.25em;
+$padding__button: 0.4em 0.9em;
+
+
+
+/* ----------------------- Base element styles ----------------------- */
+
+$navbar__height: 64px;
+$footer__height: 64px;
+$sidenav__width: 324px;
+
+
+$hero__height: 600px - $navbar__height;
+$hero__background-color: hsla(196, 21%, 56%, 1);
+
+
+$button__height: 4.8rem;
+$button__width: 4.8rem;
+$button-fab__width: $button__height;
+$button-fab__height: $button__height;
+$button__color: $theme-color__primary;
+
+$tap-target__min-width: 44px;
+$tap-target__min-height: 44px;
+
+
+
+/* --------------------------- Base Animation Variables ----------------------------- */
+
+/**
+ * Use with every animation and transition so we can have a
+ * global animation speed toggler (i.e., for visual UI testing)
+ */
+$anim-duration__multiplier: 1s;
+$anim-duration__color-change: 0.3s;
+
+
+/*
+ * Easing functions
+ */
+$easing__ease-out-cubic: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+$easing__ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);

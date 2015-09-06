@@ -1,0 +1,6 @@
+/* Ideally, this would be the top-level class on a <ul> */
+.item-list {
+  /* Remove bullets and default list indentation */
+  list-style-type: none;
+  padding-left: 0;
+}
