@@ -1,0 +1,9 @@
+import Ember from 'ember';
+
+let TodosIndexRoute = Ember.Route.extend({
+  model: function () {
+    return this.modelFor('todos');
+  }
+});
+
+export default TodosIndexRoute;

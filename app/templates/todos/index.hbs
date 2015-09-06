@@ -1,0 +1,54 @@
+<ul class="todo-list content">
+
+  {{#each model as |todo|}}
+
+    <li class="todo-item
+            {{if todo.isComplete 'todo-item--complete'}}
+            {{if todo.isEditing 'todo-item--editing'}}"
+            >
+      {{#if todo.isEditing}}
+
+        {{input
+            type="text"
+            class="input-field
+                   input-field--text
+                   todo-item__title
+                   todo-item__title--input
+                   todo-item__element"
+            value="todo.model.title"
+            focus-out="acceptChanges"
+            insert-newline="acceptChanges"
+            autofocus="autofocus"
+        }}
+
+      {{else}}
+
+        {{input
+            type="checkbox"
+            class="checkbox
+                   todo-item__element
+                   todo-item__toggle"
+            checked="todo.isComplete"
+        }}
+        <label
+          class="label
+                 todo-item__element
+                 todo-item__title
+                 todo-item__title--label"
+          {{action 'editTodo' on='doubleClick'}}>
+            {{todo.title}}
+        </label>
+        <button class="btn
+                       btn--destroy
+                       todo-item__btn
+                       todo-item__element"
+               {{action 'removeTodo'}}>
+       </button>
+
+      {{/if}}
+
+    </li>
+
+  {{/each}}
+
+</ul>

@@ -20,38 +20,31 @@
                 <div class="todo-item todo-item--new">
                     <!--<span><i class="ic ic-new-item"></i></span>-->
 
-                    <div class="todo-item__toggle-container">
-                        <input class="checkbox todo-item__toggle-all" id="todos__toggle-all" type="checkbox" />
-                        <label class="hidden" for="todos__toggle-all">Mark as complete</label>
-                    </div>
+                    <input class="checkbox
+                                  todo-item__element
+                                  todo-item__toggle-all"
+                           id="todos__toggle-all"
+                           type="checkbox" />
+                    <label class="hidden" for="todos__toggle-all">Mark as complete</label>
 
                     <input id="todos__new"
                             type="text"
-                            class="input-field input-field--text todo-item__title--new"
+                            class="input-field
+                                   input-field--text
+                                   todo-item__title
+                                   todo-item__title--new"
                             placeholder="What needs to be done?"
                             autofocus/>
 
-                    <div class="todo-item__btns">
-                        <button class="btn btn--primary todo-item__btn animated-hide"></button>
-                    </div>
+                  <button class="btn btn--primary todo-item__element todo-item__btn animated-hide"></button>
 
                 </div>
 
-                <ul class="todo-list content">
+                <!-- Todos list: <ul> -->
+                {{outlet}}
 
-                    {{#each todo in model}}
-
-                      <li class="todo-item {{if todo.isComplete 'todo-item__complete'}}">
-                        <input class="checkbox todo-item__toggle" type="checkbox">
-                        <label class="label">{{todo.title}}</label>
-                        <button class="btn btn--destroy"></button>
-                      </li>
-
-                    {{/each}}
-
-                    <input type="checkbox" class="checkbox todo-item__toggle-all">
-
-                </ul>
+                <!-- FIXME: One of these toggle-all buttons is not needed -->
+                <input type="checkbox" class="checkbox todo-item__toggle-all" checked={{allAreComplete}}>
 
                 <section class="page-section__stats-footer">
 

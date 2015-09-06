@@ -8,8 +8,6 @@ $todo-item__height: 2.0em;
 $todo-item__height--new: 3em;
 
 
-
-
 // <li>
 .todo-item {
 
@@ -25,35 +23,33 @@ $todo-item__height--new: 3em;
     display: flex;
     flex-direction: row;
     align-items: center;
-    
-    
+    justify-content: flex-start;
+
+
     button,
     input[type="checkbox"] {
         outline: none;
     }
-    
+
     input[type="text"] {
         border: none;
         outline: none;
         box-sizing: border-box;
     }
 
-    .todo-item__toggle-container {
-        flex: 1;
-        order: 1;
-    }
-    
-
-    .todo-item__btns {
-        flex: 1;
-        order: 3;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    .todo-item__element {
+      display: flex;
+      flex-direciton: column;
+      justify-content: center;
+      align-items: center;
     }
 
-    .btn {
+    .todo-item__title {
+
+    }
+
+
+    .todo-item__btn {
         min-width: $todo-item__btn-size;
         width: $todo-item__btn-size;
         height: $todo-item__btn-size;
@@ -91,9 +87,8 @@ $todo-item__height--new: 3em;
 
 
     .todo-item__title {
-        
+
         flex: 7;
-        order: 2;
         text-align: center;
         background-color: transparent;
 
@@ -105,7 +100,7 @@ $todo-item__height--new: 3em;
         line-height: 1.2;
         transition: color 0.4s;
 
-        &[class*="--new"] {
+        &.todo-item__title--new {
             position: relative;
             width: auto;
             font-size: 1.5em;
@@ -116,21 +111,19 @@ $todo-item__height--new: 3em;
             box-sizing: border-box;
         }
 
-        &[class*="--editing"] {
+        &.todo-item__title--input {
 
             display: none;
             background-color: hsla(0, 0%, 0%, 0.003);
             box-shadow: none;
-            
-            
             height: 100%;
         }
 
     }
-    
-    
+
+
     .todo-item__btn {
-    
+
         position: relative;
         display: flex;
         padding: 0.5em;
@@ -139,7 +132,7 @@ $todo-item__height--new: 3em;
         align-items: center;
         transition: opacity 0.8s $easing__ease-out-cubic,
                     scale 0.8s $easing__ease-out-cubic;
-    
+
 
         &.btn--destroy {
             width: $todo-item__check-btn-size;
@@ -154,25 +147,25 @@ $todo-item__height--new: 3em;
 
           &:hover {
             color: red;
-              
+
           }
-          &:after {            
+          &:after {
             content: 'x';
             transform: translateY(-0.1em);
           }
         }
-        
+
         &.btn--primary {
             &:after {
                 content: '+';
             }
         }
-    }        
+    }
 }
 
 /* ------------- MODIFIERS -------------- */
 .todo-item--completed {
-  .todo-item__title {
+  .todo-item__title--label {
     color: #d9d9d9;
     text-decoration: line-through;
   }
@@ -185,12 +178,12 @@ $todo-item__height--new: 3em;
         margin-bottom: -1px;
     }
 
-    .todo-item__title {
+    .todo-item__title--label {
         display: none;
     }
 
-    .todo-item__title--editing {
-        display: block;            
+    .todo-item__title--input {
+        display: block;
     }
 
 
@@ -205,5 +198,3 @@ $todo-item__height--new: 3em;
   background-color: $todo-item__background-color--faded;
   height: $todo-item__height--new;
 }
-    
-

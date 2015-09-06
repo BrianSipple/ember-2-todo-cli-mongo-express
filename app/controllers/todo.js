@@ -1,22 +1,24 @@
-import Ember form 'ember';
+import Ember from 'ember';
 
 let TodoController = Ember.Controller.extend({
 
   isEditing: false,
 
   isComplete: Ember.computed('model:isComplete', {
-    get: () => {
+
+    get: function () {
       return this.get('model').get('isComplete');
     },
-    set: (key, value) => {
+
+    set: function (key, value) {
       let model = this.get('model');
-      model.set('isCompleted', value);
+      model.set('isComplete', value);
       model.save();
       return value;
     }
   }),
 
-  removeTodo: () => {
+  removeTodo: function () {
     var todo = this.get('model');
     todo.deleteRecord();
     todo.save();
@@ -24,11 +26,11 @@ let TodoController = Ember.Controller.extend({
 
   actions: {
 
-    editTodo: () => {
+    editTodo: function () {
       this.set('isEditing', true);
     },
 
-    acceptChanges: () => {
+    acceptChanges: function () {
 
       this.set('isEditing', false);
 
