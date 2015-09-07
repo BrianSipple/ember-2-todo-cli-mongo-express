@@ -1,11 +1,11 @@
 $todo-item__check-btn-size: 1em;
 $todo-item__background-color: hsla(0, 0%, 99%, 1);
-$todo-item__background-color--faded: hsla(0, 100%, 100%, 0.33);
+$todo-item__background-color--faded: hsla(0, 0%, 99%, 0.83);
 $todo-item__btn-size: 1em;
 $todo-item__font-size: 1.5em;
 $todo-item__padding:  0.5em 0.67em;
-$todo-item__height: 2.0em;
-$todo-item__height--new: 3em;
+$todo-item__height: 6.6rem;
+$todo-item__height--new: 7.0rem;
 
 
 // <li>
@@ -13,17 +13,21 @@ $todo-item__height--new: 3em;
 
     position: relative;
     font-size: 1.5em;
-    height: $todo-item__height;  // TODO: Verfify if this is a good way to set the height (It seems like it is -- as we're wrapping a list item and it's relative to the font-size)
+    height: $todo-item__height;
     box-shadow: inset 0 -1px 5px hsla(0, 0%, 0%, 0.2);
-    padding: $todo-item__padding;
+    //padding: $todo-item__padding;
     //justify-content: center;
     //align-items: center;
     background-color: $todo-item__background-color;
-    border-radius: 5px;
+    //border-radius: 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+
+    &:last-child {
+      box-shadow: none;
+    }
 
 
     button,
@@ -44,18 +48,6 @@ $todo-item__height--new: 3em;
       align-items: center;
     }
 
-    .todo-item__title {
-
-    }
-
-
-    .todo-item__btn {
-        min-width: $todo-item__btn-size;
-        width: $todo-item__btn-size;
-        height: $todo-item__btn-size;
-        min-height: $todo-item__btn-size;
-        position: relative;
-    }
 
     .todo-item__toggle,
     .todo-item__toggle-all {
@@ -64,10 +56,10 @@ $todo-item__height--new: 3em;
     }
 
     .todo-item__toggle-all {
-      transform: rotate(90deg);
 
       &:before {
         content: '>>';
+        transform: rotate(90deg);
         font-size: 0.9em;
         color: #e6e6e6;
         border: none;
@@ -90,8 +82,7 @@ $todo-item__height--new: 3em;
 
         flex: 7;
         text-align: center;
-        background-color: transparent;
-
+        background-color: inherit;
         white-space: pre;
         word-break: break-word;
         display: flex;
@@ -99,33 +90,24 @@ $todo-item__height--new: 3em;
         justify-content: center;
         line-height: 1.2;
         transition: color 0.4s;
-
-        &.todo-item__title--new {
-            position: relative;
-            width: auto;
-            font-size: 1.5em;
-            font-family: inherit;
-            font-weight: inherit;
-            outline: none;
-            color: inherit;
-            box-sizing: border-box;
-        }
-
-        &.todo-item__title--input {
-
-            display: none;
-            background-color: hsla(0, 0%, 0%, 0.003);
-            box-shadow: none;
-            height: 100%;
-        }
-
+    }
+    .todo-item__title--input {
+        display: none;
+        padding: 0;
+        box-shadow: none;
+        height: 100%;
     }
 
 
     .todo-item__btn {
-
+        min-width: $todo-item__btn-size;
+        width: $todo-item__btn-size;
+        height: $todo-item__btn-size;
+        min-height: $todo-item__btn-size;
+        margin-right: 5%;
         position: relative;
         display: flex;
+        opacity: 0;
         padding: 0.5em;
         flex-direction: column;
         justify-content: center;
@@ -141,13 +123,14 @@ $todo-item__height--new: 3em;
             height: $todo-item__check-btn-size;
             min-height: $todo-item__check-btn-size;
             font-size: 1.25em;
-            background-color: hsla(0, 74%, 65%, 1);
+            background-color: transparent;
+            box-shadow: none;
             transition: background-color 0.2s $easing__ease-out-cubic,
                         opacity 0.3s $easing__ease-out-cubic;
 
           &:hover {
             color: red;
-
+            opacity: 1;
           }
           &:after {
             content: 'x';
@@ -155,16 +138,21 @@ $todo-item__height--new: 3em;
           }
         }
 
-        &.btn--primary {
+        &.btn--add {
             &:after {
+                //transform: translateY(-10%);
                 content: '+';
+            }
+            &:hover {
+              opacity: 1;
+              color: $theme-color__accent;
             }
         }
     }
 }
 
 /* ------------- MODIFIERS -------------- */
-.todo-item--completed {
+&.todo-item--completed {
   .todo-item__title--label {
     color: #d9d9d9;
     text-decoration: line-through;
@@ -172,7 +160,7 @@ $todo-item__height--new: 3em;
 }
 
 /* Existing item being edited */
-.todo-item--editing {
+&.todo-item--editing {
 
     &:last-child {
         margin-bottom: -1px;
@@ -183,11 +171,39 @@ $todo-item__height--new: 3em;
     }
 
     .todo-item__title--input {
-        display: block;
+        display: flex;
     }
-
-
 }
+
+&.todo-item--new {
+
+  .todo-item__toggle-all {
+      position: absolute;
+      left: 5%;
+      top: 50%;
+      transform: translate3d(-5%, -50%, 0);
+      z-index: 2;
+  }
+  .todo-item__btn {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translate3d(5%, -50%, 0);
+  }
+
+  .todo-item__title {
+      display: flex;
+      position: relative;
+      width: auto;
+      font-size: 1.5em;
+      font-family: inherit;
+      font-weight: inherit;
+      outline: none;
+      color: inherit;
+      box-sizing: border-box;
+  }
+}
+
 
 .todo-item--hidden {
   display: none;

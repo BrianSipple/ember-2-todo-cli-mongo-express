@@ -1,0 +1,41 @@
+
+{{#if isEditing}}
+
+  {{input
+      type="text"
+      class="input-field
+             input-field--text
+             todo-item__title
+             todo-item__title--input
+             todo-item__element"
+      value="todo.title"
+      focus-out="verifyChanges"
+      insert-newline="verifyChanges"
+      autofocus="autofocus"
+  }}
+
+{{else}}
+
+  {{input
+      type="checkbox"
+      class="checkbox
+             todo-item__element
+             todo-item__toggle"
+      checked="todo.isComplete"
+  }}
+  <label
+    class="label
+           todo-item__element
+           todo-item__title
+           todo-item__title--label"
+    {{action 'setToEditing' on='doubleClick'}}>
+      {{todo.title}}
+  </label>
+  <button class="btn
+                 btn--destroy
+                 todo-item__btn
+                 todo-item__element"
+         {{action 'removeTodo'}}>
+ </button>
+
+{{/if}}

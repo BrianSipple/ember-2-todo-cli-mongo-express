@@ -28,14 +28,14 @@ let TodosController = Ember.Controller.extend({
 
     clearCompleted: function () {
 
-      let completed = this.filterBy('isComplete', true);
+      let completed = this.model.filterBy('isComplete', true);
       completed.invoke('deleteRecord');
       completed.invoke('save');
     }
   },
 
   numRemaining: function numRemaining () {
-    return this.filterBy('isComplete', false).get('length');
+    return this.model.filterBy('isComplete', false).get('length');
   }.property('@each.isComplete'),
 
   inflection: function inflection () {
@@ -43,12 +43,12 @@ let TodosController = Ember.Controller.extend({
     return numRemaining === 1 ? 'todo': 'todos';
   }.property('numRemaining'),
 
-  hasCompleted: function hasCompleted () {
+  anyAreComplete: function anyAreComplete () {
     return this.get('numCompleted') > 0;
-  }.property('numCompleted'),
+  }.property('anyAreComplete'),
 
   numCompleted: function numCompleted () {
-    return this.filterBy('isComplete', true).get('length');
+    return this.model.filterBy('isComplete', true).get('length');
   }.property('@each.isComplete'),
 
   allAreComplete: Ember.computed('@each.isComplete', {

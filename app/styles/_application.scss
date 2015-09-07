@@ -158,6 +158,9 @@ h1, h2, h3, h4 {
     font-weight: 700;
 }
 
+.ember-view {
+  position: relative;
+}
 
 /**
  * The mother of all top-level content wrappers.

@@ -1,7 +1,7 @@
 .homepage {
 
     padding-top: 0;   // No fixed navbar to account for
-    
+
   .page-section--main-content {
       margin-top: -($hero__height / 3);
   }
@@ -37,7 +37,7 @@
         right: 0;
         bottom: 0;
         left: 0;
-        height: 50px;
+        height: 100%;
         overflow: hidden;
         box-shadow:
           0 1px 1px hsla(0, 0%, 0%, 0.2),
@@ -53,7 +53,12 @@
 
       .tab-selectors {
         flex: 3;
+        box-shadow: none;
+        color: $font-color__button--dark-on-light-background;
+        background-color: transparent;
+
       }
+
 
       .stats-footer__clear-btn-container {
         flex: 1;

@@ -15,6 +15,7 @@ $padding__tab: 0 0.75em;
     height: $tab-selectors__height;
     font-size: 1.2rem;
     font-weight: 500;
+    color: $tab__font-color;
     overflow: hidden;
     -webkit-tap-highlight-color: hsla(0, 0%, 0%, 0.0);
     user-select: none;
@@ -54,7 +55,7 @@ $padding__tab: 0 0.75em;
 
         .tab__link {
             text-decoration: none;
-            color: $tab__font-color;
+            color: currentColor;   // enable more flexible configuration at parent level
             display: flex;
             flex-direction: column;
             justify-content: center;
