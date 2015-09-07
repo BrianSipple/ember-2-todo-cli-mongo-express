@@ -1,0 +1,10 @@
+{{#if isShowingPopOutButton}}
+  <button class="btn btn--choice-pop-out" {{action 'responseAction'}}>
+    {{#if popOutMessage}}
+      {{popOutMessage}}
+    {{/if}}
+  </button>
+{{/if}}
+<button class="btn btn--choice-pop-out" {{action 'showPopOutButton'}}>
+  {{title}}
+</button>

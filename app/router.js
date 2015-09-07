@@ -5,11 +5,15 @@ var Router = Ember.Router.extend({
   location: config.locationType
 });
 
+// Router.map(function() {
+//   this.route('todos', { path: '/' }, function () {
+//     this.route('active');
+//     this.route('completed');
+//   });
+// });
+
 Router.map(function() {
-  this.route('todos', { path: '/' }, function () {
-    this.route('active');
-    this.route('completed');
-  });
+  this.route('todos', { path: '/' });
 });
 
 export default Router;

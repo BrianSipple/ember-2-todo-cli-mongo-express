@@ -31,11 +31,17 @@
     {{action 'setToEditing' on='doubleClick'}}>
       {{todo.title}}
   </label>
+
+  <!--
+  {{choice-pop-out-button action="deleteTodo" actionParam=todo popOutMessage="Undo"}}
+  -->
+
   <button class="btn
                  btn--destroy
                  todo-item__btn
                  todo-item__element"
-         {{action 'removeTodo'}}>
+         {{action 'deleteTodo'}}>
  </button>
+
 
 {{/if}}

@@ -33,16 +33,18 @@ let TodoComponent = Ember.Component.extend({
       this.set('isEditing', true);
     },
 
-    removeTodo: function removeTodo () {
+    deleteTodo: function deleteTodo () {
       debugger;
-      this.todo.deleteRecord();
-      this.todo.save();
+      let todo = this.todo;
+      todo.deleteRecord();
+      todo.save();
+      //this.sendAction('action', this.todo);
     },
 
     verifyChanges: function verifyChanges () {
 
       if (Ember.isEmpty(this.todo.get('title'))) {
-        this.send('removeTodo');
+        this.sendAction('deleteTodo', this.todo);
 
       } else {
         this.todo.save();

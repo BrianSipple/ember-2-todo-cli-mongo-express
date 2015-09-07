@@ -2,9 +2,10 @@ import Ember from 'ember';
 
 let TodosRoute = Ember.Route.extend({
 
-  model: function () {
+  model() {
     return this.store.findAll('todo');
   }
+
 });
 
 export default TodosRoute;

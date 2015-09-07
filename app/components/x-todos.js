@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
+let TodosComponent = Ember.Component.extend({
 
-let TodosController = Ember.Controller.extend({
-
+  model: null,
   newTodo: {},
 
   actions: {
@@ -35,6 +35,7 @@ let TodosController = Ember.Controller.extend({
   },
 
   numRemaining: function numRemaining () {
+    debugger;
     return this.model.filterBy('isComplete', false).get('length');
   }.property('@each.isComplete'),
 
@@ -66,5 +67,4 @@ let TodosController = Ember.Controller.extend({
 
 });
 
-
-export default TodosController;
+export default TodosComponent;
