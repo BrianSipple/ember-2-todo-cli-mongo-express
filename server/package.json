@@ -1,0 +1,17 @@
+{
+  "name": "ember-todo-backend",
+  "version": "1.0.0",
+  "description": "Custom API for TODO MVC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brian Sipple <@Brian_Sipple>",
+  "license": "ISC",
+  "devDependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "mongodb": "^2.0.42",
+    "mongoose": "^4.1.5"
+  }
+}

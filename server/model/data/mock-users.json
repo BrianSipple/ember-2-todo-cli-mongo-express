@@ -1,0 +1,16 @@
+[
+  {
+      "username": "bsipple",
+      "firstName": "Brian",
+      "lastName": "Sipple",
+      "email": "bsipple57@gmail.com",
+      "twitterUsername": "@Brian_Sipple"
+  },
+  {
+      "username": "sholmes",
+      "firstName": "Sherlock",
+      "lastName": "Holmes",
+      "email": "sholmes@gmail.com",
+      "twitterUsername": "@Sherlock"
+  }
+]

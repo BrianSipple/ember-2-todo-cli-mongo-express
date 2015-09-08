@@ -1,0 +1,156 @@
+<div id="todoApp" class="page homepage">
+
+    <section class="page-section page-section--hero hero">
+
+            <header>
+                <h1 class="hero__main-title">ToDo: Everything</h1>
+            </header>
+            <div class="hero__content-container">
+                <h2 class="page-section__title">Let's Get To It</h2>
+            </div>
+
+    </section>
+
+    <section class="page-section--main-content">
+
+        <div class="container todos">
+
+            <div class="content">
+
+                <div class="todo-item todo-item--new">
+                    <!--<span><i class="ic ic-new-item"></i></span>-->
+
+                    <input class="checkbox
+                                  todo-item__element
+                                  todo-item__toggle-all"
+                           id="todos__toggle-all"
+                           type="checkbox" />
+                    <label class="hidden" for="todos__toggle-all">Mark as complete</label>
+
+                    {{input id="todos__new"
+                            type="text"
+                            class="input-field
+                                   input-field--text
+                                   todo-item__element
+                                   todo-item__title--input
+                                   todo-item__title"
+                            placeholder="What needs to be done?"
+                            value=newTodo.title
+                            enter="createTodo"
+                            autofocus="autofocus"
+                    }}
+
+                  <button class="btn
+                                 btn--add
+                                 todo-item__element
+                                 todo-item__btn
+                                 animated-hide">
+                  </button>
+
+                </div>
+
+                <!-- Todos list: <ul> -->
+                {{todo-list todos=todosToShow}}
+
+
+                <section class="page-section__stats-footer">
+
+                    <footer class="footer stats-footer">
+
+                        <div class="footer__item stats-footer__count">
+                            <strong>{{numRemaining}}</strong> {{inflection}} remaining
+                        </div>
+
+                        <!-- Sliding bottom indicator -->
+                        <div class="footer__item tab-selectors">
+                            <div class="tab-selectors__content">
+
+                                <ul class="tab-selectors__tab-list">
+
+                                    <li class="tab active" role="tab" tabindex="0">
+
+                                      <!--
+                                        {{#link-to "todos.index" class="tab__link" activeClass="selected"}}All{{/link-to}}
+                                      -->
+
+                                        <a href="#/" class="tab__link" {{action 'filterShownTodos' todoFilters.ALL}}>ALL</a>
+
+                                        <div class="ripple">
+                                            <div class="ripple__background"></div>
+                                            <div class="ripple__waves">
+                                                <div class="waves-container">
+                                                    <div class="wave"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </li>
+
+                                    <li class="tab" role="tab" tabindex="-1">
+
+
+                                      <a href="#/" class="tab__link" {{action 'filterShownTodos' todoFilters.ACTIVE}}>Active</a>
+                                      <!--
+                                      {{#link-to "todos.active" class="tab__link" activeClass="selected"}}Active{{/link-to}}
+                                      -->
+
+                                        <div class="ripple">
+                                            <div class="ripple__background"></div>
+                                            <div class="ripple__waves">
+                                                <div class="waves-container">
+                                                    <div class="wave"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </li>
+
+                                    <li class="tab" role="tab" tabindex="-1">
+                                      <a href="#/" class="tab__link" {{action 'filterShownTodos' todoFilters.COMPLETED}}>Completed</a>
+
+                                      <!--
+                                      {{#link-to "todos.completed" class="tab__link" activeClass="selected"}}Completed{{/link-to}}
+                                      -->
+
+                                        <div class="ripple">
+                                            <div class="ripple__background"></div>
+                                            <div class="ripple__waves">
+                                                <div class="waves-container">
+                                                    <div class="wave"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <div class="footer__item stats-footer__clear-btn-container">
+
+                          {{#if anyAreComplete}}
+
+                            <button id="todos__clear-completed"
+                                    {{action "clearCompleted"}}
+                                    class="btn
+                                          btn--destroy">
+                                Clear completed ({{numCompleted}})
+                            </button>
+
+                          {{/if}}
+                        </div>
+
+                    </footer>
+
+                </section>
+
+            </div>
+        </div>
+
+        <footer class="footer todos__footer">
+            <p class="content info">Double-click to edit a todo</p>
+        </footer>
+
+    </section>
+
+</div>
