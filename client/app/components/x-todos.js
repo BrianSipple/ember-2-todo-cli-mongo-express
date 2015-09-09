@@ -24,7 +24,7 @@ let TodosComponent = Ember.Component.extend({
       if (!title.trim()) { return; }
 
       // Create the new model
-      let newTodo = this.store.createRecord('todo', {
+      let newTodo = this.model.store.createRecord('todo', {
         title: title,
         isComplete: false
       });

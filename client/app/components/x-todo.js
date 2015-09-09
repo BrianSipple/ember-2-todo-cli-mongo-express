@@ -12,16 +12,16 @@ let TodoComponent = Ember.Component.extend({
   tagName: "li",
   todo: null,
   isHidden: false,
-
   isEditing: false,
 
-  isComplete: Ember.computed('model:isComplete', {
+  isComplete: Ember.computed('todo:isComplete', {
 
     get: function get() {
       return this.todo.get('isComplete');
     },
 
     set: function set (key, value) {
+      debugger;
       this.todo.set('isComplete', value);
       this.todo.save();
       return value;

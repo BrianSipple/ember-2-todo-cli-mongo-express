@@ -4,12 +4,20 @@
 
  var
   mongoose = require('mongoose'),
-  DEFAULT_DB_NAME = require('../lib/constants/data-constants').DEFAULT_DB_NAME,
-  DB_URI = 'mongodb://localhost/' + DEFAULT_DB_NAME;
+  mongoSecrets = require('../secrets/mongolab'),
+  DB_USERNAME = mongoSecrets.DB_USERNAME,
+  DB_PASSWORD = mongoSecrets.DB_PASSWORD,
+  DB_ADDRESS = mongoSecrets.DB_ADDRESS,
+  DB_LOCAL_NAME = require('../lib/constants/data-constants').DEFAULT_DB_NAME,
+  DB_URI = 'mongodb://' + DB_USERNAME + ':' + DB_PASSWORD + '@' + DB_ADDRESS,
+  LOCAL_DB_URI = 'mongodb://localhost/' + DB_LOCAL_NAME;
 
 // Create the database connection
-mongoose.connect(DB_URI);
+// mongoose.connect(DB_URI);
 
+// Temporary local DB use
+DB_URI = LOCAL_DB_URI;
+mongoose.connect(DB_URI);
 
 ///////////// CONNECTION EVENTS /////////
 
